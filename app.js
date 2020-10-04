@@ -1,8 +1,13 @@
 const express = require('express');
 const app = express();
 const mongoose = require("mongoose");
+require('dotenv').config();
 
-mongoose.connect("mongodb+srv://vishnu:iT7dYh2bmz7AHVj7@cluster0.cxmpb.gcp.mongodb.net/RepositoryDetails?retryWrites=true&w=majority",{ useUnifiedTopology: true , useNewUrlParser: true});
+const mongoDBUserName = process.env.MONGODB_USERNAME;
+const mongoDBPassword = process.env.MONGODB_PASSWORD;
+const mongoDBUrl =  `mongodb+srv://${mongoDBUserName}:${mongoDBPassword}@cluster0.cxmpb.gcp.mongodb.net/RepositoryDetails?retryWrites=true&w=majority`;
+
+mongoose.connect(mongoDBUrl ,{ useUnifiedTopology: true , useNewUrlParser: true});
 
 //schema setup
 let repoSchema = new mongoose.Schema({
@@ -13,7 +18,7 @@ let repoSchema = new mongoose.Schema({
 let  RepoDetails = mongoose.model("RepoDetails" , repoSchema);
 RepoDetails.create(
     {
-        name: "Quizzer",
+        name: "Services",
         description: "Som  e random project" 
     },(err,RepoDetails)=>{
         if(err){
