@@ -19,12 +19,13 @@
   "homepage": "https://github.com/vishnu0pothan/My-Website#readme",
   "dependencies": {
     "ejs": "^3.1.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.10.7"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
   },
-  "nodeConfig":{
-    "ignore":[]
+  "nodeConfig": {
+    "ignore": []
   }
 }
