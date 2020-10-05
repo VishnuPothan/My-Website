@@ -3,6 +3,8 @@ const app = express();
 const mongoose = require("mongoose");
 require('dotenv').config();
 
+const PORT = process.env.PORT || 8080;
+
 //mongodb connect
 const mongoDBUserName = process.env.MONGODB_USERNAME;
 const mongoDBPassword = process.env.MONGODB_PASSWORD;
@@ -26,6 +28,6 @@ app.get("/",(req,res) =>{
     res.render("pages/index");
 });
 
-app.listen(8080 , function(){
+app.listen(PORT , function(){
     console.log("Listening at port 8080");
 });
